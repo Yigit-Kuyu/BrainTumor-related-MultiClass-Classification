@@ -83,6 +83,8 @@ img_size=240
 
 X_train = []
 y_train = []
+X_val = []
+y_val = []
 X_test = []
 y_test = []
 
@@ -98,6 +100,19 @@ for i in labels:
                 
 X_train = np.array(X_train)
 y_train = np.array(y_train)
+
+print("For Validation Set")
+for i in labels:
+    folderPath = os.path.join(path_to_splitdataset,'val',i)
+    for j in tqdm(os.listdir(folderPath)):
+        img = cv2.imread(os.path.join(folderPath,j))
+        img = crop_brain_canny(img)
+        img = cv2.resize(img, (img_size, img_size))
+        X_val.append(img)
+        y_val.append(i)
+
+X_val = np.array(X_val)
+y_val = np.array(y_val)
 
 print("For Test Set")
 for i in labels:
@@ -115,7 +130,9 @@ y_test = np.array(y_test)
 # path to save cropped image
 base_train_folder="/home/yck/Desktop/GITHUB/Bayesian Reinforcement Learning/MULTICLASS_CLASSIFICATION/multi-class-brain-tumor-classification/Train/"
 base_test_folder='/home/yck/Desktop/GITHUB/Bayesian Reinforcement Learning/MULTICLASS_CLASSIFICATION/multi-class-brain-tumor-classification/Test/'
+base_val_folder='/home/yck/Desktop/GITHUB/Bayesian Reinforcement Learning/MULTICLASS_CLASSIFICATION/multi-class-brain-tumor-classification/Val/'
 save_new_images(X_train, y_train, folder_name=base_train_folder)
+save_new_images(X_val, y_val, folder_name=base_val_folder)
 save_new_images(X_test, y_test, folder_name=base_test_folder)
 
 

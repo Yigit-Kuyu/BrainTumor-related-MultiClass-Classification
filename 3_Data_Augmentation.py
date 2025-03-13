@@ -5,18 +5,19 @@ import matplotlib.pyplot as plt
 from os import listdir
 import os
 import numpy as np
-from albumentations import Compose, Rotate, HorizontalFlip, VerticalFlip, ShiftScaleRotate
+from albumentations import Compose, Rotate, HorizontalFlip, VerticalFlip, ShiftScaleRotate, Resize
 from tqdm import tqdm
 
 
- # To apply data augmentation on training data
+ # To apply data augmentation for only training data
 
 
 
 # Offline augmentation
-def augment_data(file_dir, n_generated_samples, save_to_dir):
+def augment_data(file_dir, n_generated_samples, save_to_dir, img_size):
     # Define augmentation pipeline
     augmentation = Compose([
+        Resize(height=img_size, width=img_size, always_apply=True),
         Rotate(limit=10, border_mode=cv2.BORDER_REPLICATE, p=0.5),
         HorizontalFlip(p=0.5),
         VerticalFlip(p=0.5),
@@ -59,6 +60,7 @@ def augment_data(file_dir, n_generated_samples, save_to_dir):
             cv2.imwrite(output_path, augmented_image_bgr)
 
 
+
 # path of cropped images
 glioma_train= '/home/yck/Desktop/GITHUB/Bayesian Reinforcement Learning/MULTICLASS_CLASSIFICATION/multi-class-brain-tumor-classification/Train/glioma'
 meningioma_train= '/home/yck/Desktop/GITHUB/Bayesian Reinforcement Learning/MULTICLASS_CLASSIFICATION/multi-class-brain-tumor-classification/Train/meningioma'
@@ -68,21 +70,25 @@ pituitary_train= '/home/yck/Desktop/GITHUB/Bayesian Reinforcement Learning/MULTI
 augment_data(
     file_dir=glioma_train, # base dataset to be augmented from the given path
     n_generated_samples=1,
-    save_to_dir=glioma_train #  generated dataset to save the path
+    save_to_dir=glioma_train, #  generated dataset to save the path
+    img_size=240
 )
 
 
 augment_data(
     file_dir=meningioma_train, # base dataset to be augmented from the given path
     n_generated_samples=1,
-    save_to_dir=meningioma_train #  generated dataset to save the path
+    save_to_dir=meningioma_train, #  generated dataset to save the path
+    img_size=240
 )
+
 
 
 augment_data(
     file_dir=pituitary_train, # base dataset to be augmented from the given path
     n_generated_samples=1,
-    save_to_dir=pituitary_train #  generated dataset to save the path
+    save_to_dir=pituitary_train, #  generated dataset to save the path
+    img_size=240
 )
 
 print('stop')
