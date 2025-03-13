@@ -62,9 +62,9 @@ def augment_data(file_dir, n_generated_samples, save_to_dir, img_size):
 
 
 # path of cropped images
-glioma_train= '/home/yck/Desktop/GITHUB/Bayesian Reinforcement Learning/MULTICLASS_CLASSIFICATION/multi-class-brain-tumor-classification/Train/glioma'
-meningioma_train= '/home/yck/Desktop/GITHUB/Bayesian Reinforcement Learning/MULTICLASS_CLASSIFICATION/multi-class-brain-tumor-classification/Train/meningioma'
-pituitary_train= '/home/yck/Desktop/GITHUB/Bayesian Reinforcement Learning/MULTICLASS_CLASSIFICATION/multi-class-brain-tumor-classification/Train/pituitary'
+glioma_train= '/Train/glioma'
+meningioma_train= '/Train/meningioma'
+pituitary_train= '/Train/pituitary'
 
 # Offline augmentation
 augment_data(

@@ -8,8 +8,8 @@ from PIL import Image
 
 
 # Define paths
-input_folder = "/home/yck/Desktop/GITHUB/Bayesian Reinforcement Learning/MULTICLASS_CLASSIFICATION/multi-class-brain-tumor-classification/Dataset"
-output_folder = "/home/yck/Desktop/GITHUB/Bayesian Reinforcement Learning/MULTICLASS_CLASSIFICATION/multi-class-brain-tumor-classification/Processed_Dataset"
+input_folder = "/Dataset"
+output_folder = "/Processed_Dataset"
 
 # Create output folder if it doesn't exist
 if not os.path.exists(output_folder):
@@ -62,6 +62,6 @@ for i, file_name in enumerate(file_list, 1):
 
 # Split the dataset using splitfolders
 import splitfolders
-path_to_splitdataset = "/home/yck/Desktop/GITHUB/Bayesian Reinforcement Learning/MULTICLASS_CLASSIFICATION/multi-class-brain-tumor-classification/Test_Val_Data"
+path_to_splitdataset = "/Test_Val_Data"
 splitfolders.ratio(output_folder, output=path_to_splitdataset, seed=3, ratio=(0.8, 0.1, 0.1))
 print("Dataset split into train/val/test.")

@@ -75,7 +75,7 @@ def save_new_images(x_set, y_set, folder_name):
 
 
 
-path_to_splitdataset="/home/yck/Desktop/GITHUB/Bayesian Reinforcement Learning/MULTICLASS_CLASSIFICATION/multi-class-brain-tumor-classification/Test_Val_Data/"
+path_to_splitdataset="/Test_Val_Data/"
 
 
 labels = ['glioma','meningioma','pituitary']
@@ -128,9 +128,9 @@ X_test = np.array(X_test)
 y_test = np.array(y_test)
 
 # path to save cropped image
-base_train_folder="/home/yck/Desktop/GITHUB/Bayesian Reinforcement Learning/MULTICLASS_CLASSIFICATION/multi-class-brain-tumor-classification/Train/"
-base_test_folder='/home/yck/Desktop/GITHUB/Bayesian Reinforcement Learning/MULTICLASS_CLASSIFICATION/multi-class-brain-tumor-classification/Test/'
-base_val_folder='/home/yck/Desktop/GITHUB/Bayesian Reinforcement Learning/MULTICLASS_CLASSIFICATION/multi-class-brain-tumor-classification/Val/'
+base_train_folder="/Train/"
+base_test_folder='/Test/'
+base_val_folder='/Val/'
 save_new_images(X_train, y_train, folder_name=base_train_folder)
 save_new_images(X_val, y_val, folder_name=base_val_folder)
 save_new_images(X_test, y_test, folder_name=base_test_folder)
