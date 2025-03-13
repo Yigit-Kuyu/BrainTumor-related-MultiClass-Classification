@@ -168,9 +168,9 @@ def test_model(saved_model_path, X_test, y_test_onehot, class_names):
 
 
 
-base_train_folder = "/home/yck/Desktop/GITHUB/Bayesian Reinforcement Learning/MULTICLASS_CLASSIFICATION/multi-class-brain-tumor-classification/Train/"
-base_val_folder = "/home/yck/Desktop/GITHUB/Bayesian Reinforcement Learning/MULTICLASS_CLASSIFICATION/multi-class-brain-tumor-classification/Val/"
-base_test_folder = "/home/yck/Desktop/GITHUB/Bayesian Reinforcement Learning/MULTICLASS_CLASSIFICATION/multi-class-brain-tumor-classification/Test/"
+base_train_folder = "/Train/"
+base_val_folder = "/Val/"
+base_test_folder = "/Test/"
 
 
 X_train, y_train = load_images_from_folder(base_train_folder)
@@ -192,7 +192,7 @@ display_sample(X_test, y_test, n_samples=5, title="Test Samples")
 
 
 print_class_distribution(y_train, "Training Set")
-saved_checkpoint= '/home/yck/Desktop/GITHUB/Bayesian Reinforcement Learning/MULTICLASS_CLASSIFICATION/multi-class-brain-tumor-classification/Checkpoints/best_checkpoint_model.h5'
+saved_checkpoint= '/best_checkpoint_model.h5'
 
 # Encode labels to integers and one-hot format
 label_encoder = LabelEncoder()
@@ -230,13 +230,3 @@ test_model(
     class_names=labels
 )
 
-print('stop')
-
-
-
-
-   
-
-
-
-print('stop')
